@@ -10,9 +10,10 @@ export default function Home() {
       </Head>
 
       <main>
-        <h1 className="title">
-          <Link href="/first-post">페이지 이동</Link>
-        </h1>
+        <h1>Home</h1>
+        <p>
+          <Link href="/static-generation">Static Generation</Link>
+        </p>
       </main>
 
       <style jsx>{`
