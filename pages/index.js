@@ -14,6 +14,9 @@ export default function Home() {
         <p>
           <Link href="/static-generation">Static Generation</Link>
         </p>
+        <p>
+          <Link href="/server-side-rendering">Server Side Rendering</Link>
+        </p>
       </main>
 
       <style jsx>{`

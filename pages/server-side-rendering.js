@@ -2,23 +2,23 @@ import Head from 'next/head';
 import Button from '../components/button';
 import { getData } from '../lib/data';
 
-// Static Generation : 빌드 할 때 pre-rendering
+// Server Side Rendering : 각 요청이 들어올 때 pre-rendering
 
-// 아래의 getStaticProps를 이용해서 외부 data를 가져온 다음에 빌드된다.
-export default function StaticGeneration({ data }) {
+// 아래의 getServerSideProps를 이용해서 외부 data를 가져온 다음에 실행된다.
+export default function ServerSideRendering({ data }) {
   return (
     <section className="container">
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta
           name="description"
-          content="Static Generation"
+          content="Server Side Rendering"
         />
-        <title>Static Generation</title>
+        <title>Server Side Rendering</title>
       </Head>
 
       <main>
-        <h1>Static Generation</h1>
+        <h1>Server Side Rendering</h1>
         <span>data : </span>
         <span>{data}</span>
         <p>
@@ -41,13 +41,9 @@ export default function StaticGeneration({ data }) {
   )
 }
 
-// page에 getStaticProps가 있으면 먼저 실행된다.
-export async function getStaticProps() {
-  // Get external data from the file system, API, DB, etc.
+export async function getServerSideProps(context) {
   const data = await getData();
 
-  // The value of the `props` key will be
-  //  passed to the `Home` component
   return {
     props: {
       data
